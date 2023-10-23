@@ -36,10 +36,20 @@ class TextEditor:
         scrollbar.pack(side="right", fill="y")
         self.text_area.pack(side="left", fill="both", expand=True)
         file_menu = Menu(the_menu, tearoff=0)
-        file_menu.add_command(label="Open", command=self.open_file())
-        file_menu.add_command(label="Save", command=self.save_file())
+        file_menu.add_command(label="Open", command=self.open_file)
+        file_menu.add_command(label="Save", command=self.save_file)
         file_menu.add_separator()
-        file_menu.add_command(label="Quit", command=quit_app)
+        file_menu.add_command(label="Quit", command=self.quit_app)
+
+        the_menu.add_cascade(label="File", menu=file_menu)
+
+        edit_menu = Menu(the_menu, tearoff=0)
+        edit_menu.add_command(label="Bold", command=self.make_bold())
+        the_menu.add_cascade(label="Edit", menu=edit_menu)
+        self.text_area.tag_config("bt", font=("Georgia", "i4", "bold"))
+        root.config(menu=the_menu)
+
+
 
 root = Tk()
 the_menu = Menu(root)
