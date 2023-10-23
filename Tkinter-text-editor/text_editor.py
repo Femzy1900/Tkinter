@@ -33,10 +33,8 @@ class TextEditor:
             data = self.text_area.get('1.0', END + '-1c')
             # Write the text and close
             ﬁle.write(data)
-            # ----- NEXT TUTORIAL -----
-            # print(str(self.text_area.dump('1.0', END)))
-            # self.remake_ﬁle(self.text_area.dump('1.0', END))
-            # ----- END NEXT TUTORIAL -----
+
+            print(str(self.text_area.dump('1.0', END  + '-1c')))
 
             ﬁle.close()
     def make_bold(self):
