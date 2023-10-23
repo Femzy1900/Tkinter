@@ -35,6 +35,11 @@ class TextEditor:
         scrollbar.config(command=self.text_area.yview)
         scrollbar.pack(side="right", fill="y")
         self.text_area.pack(side="left", fill="both", expand=True)
+        file_menu = Menu(the_menu, tearoff=0)
+        file_menu.add_command(label="Open", command=self.open_file())
+        file_menu.add_command(label="Save", command=self.save_file())
+        file_menu.add_separator()
+        file_menu.add_command(label="Quit", command=quit_app)
 
 root = Tk()
 the_menu = Menu(root)
