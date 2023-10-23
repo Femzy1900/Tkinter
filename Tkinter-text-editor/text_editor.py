@@ -25,6 +25,17 @@ class TextEditor:
     def make_bold(self):
         self.text_area.tag_add("bt", "sel.first", "sel.last")
 
+    def __init__(self, root) -> None:
+        self.text_to_write = ""
+        root.title("Text Editor")
+        root.geometry("600x550")
+        frame = Frame(root, width=600, height=500)
+        scrollbar = Scrollbar(frame)
+        self.text_area = Text(frame, width=600, height=500, yscrollcommand=scrollbar.set, padx=10, pady=10, font=("Georgia", "14"))
+        scrollbar.config(command=self.text_area.yview)
+        scrollbar.pack(side="right", fill="y")
+        self.text_area.pack(side="left", fill="both", expand=True)
+
 root = Tk()
 the_menu = Menu(root)
 root.mainloop()
